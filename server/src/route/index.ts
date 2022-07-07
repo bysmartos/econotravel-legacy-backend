@@ -1,1 +1,1 @@
-export {default as testRoute} from './testRoute';
+export {default as experienciasRoute} from './experienciasRoute';
