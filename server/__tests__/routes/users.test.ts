@@ -12,7 +12,7 @@ app.use(userRoute);
 describe("POST /user", () => {
     describe("when passed a username and password", () => {
 
-        test('should respond with a 200 & content-type "application/json', async () => {
+        test('should respond with a 201 & content-type "application/json', async () => {
             const response = await request(app)
                 .post('/user')
                 .send({
@@ -20,7 +20,7 @@ describe("POST /user", () => {
                     password: "1234"
                 });
 
-            expect(response.status).toEqual(200);
+            expect(response.status).toEqual(201);
             expect(response.headers['content-type']).toContain('application/json');
         })
 
