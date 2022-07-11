@@ -17,7 +17,10 @@ describe("POST /user", () => {
                 .post('/user')
                 .send({
                     email: "mi@mail.com",
-                    password: "1234"
+                    password: "1234",
+                    name:"Laura",
+                    last_name:"Rodríguez",
+                    role:"client"
                 });
 
             expect(response.status).toEqual(201);
