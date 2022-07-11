@@ -6,7 +6,7 @@ import experienciasModel from "../model/experienciasModel";
 
 const experienciasController={
 
-    getExperiencias:  async (req:Request,res:Response)=>{
+    getExperiencias: async (req:Request,res:Response)=>{
         
        const exp: any= await experienciasModel.getExperiencias()
        res.json(exp)
