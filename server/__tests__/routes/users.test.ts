@@ -20,7 +20,7 @@ describe("POST /user", () => {
                     password: "1234"
                 });
 
-            expect(response.status).toEqual(200);
+            expect(response.status).toEqual(201);
             expect(response.headers['content-type']).toContain('application/json');
         })
 
