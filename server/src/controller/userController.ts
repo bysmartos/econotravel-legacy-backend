@@ -30,7 +30,7 @@ const userController = async (req: Request, res: Response) => {
             const result:QueryResult = await userModel.saveUser({ email, password, ...user });
 
             result
-                ? res.status(201).json({result: result.rows})
+                /*? res.status(201).json({result: result.rows})
                 : res.status(500).send("Failed to create a new user.");
         }
     } catch (error: any) {

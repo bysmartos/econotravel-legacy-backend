@@ -5,3 +5,8 @@ export default interface iUser {
     last_name:string;
     role:string;
 }
+export default interface iUserLogin {
+    email:string;
+    password:string;
+}
+
