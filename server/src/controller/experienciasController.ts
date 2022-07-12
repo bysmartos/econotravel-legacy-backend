@@ -43,9 +43,20 @@ updateExperiencia: async (req:Request,res:Response)=>{
     }catch (error: any){
         res.status(400).send(error.message);
     }
-}
-}
+},
 
+deleteExperiencia: async (req:Request,res:Response)=>{
+    try{
+        const param = req.params['id'];
+        const result = await experienciasModel.deleteExperiencia(param);
+        result
+                ? res.status(201).json({ result: `Experiencia deleted with ID: ${param}`})
+                : res.status(500).send('No se pudo borrar una nueva experiencia');
+    }catch (error: any){
+        res.status(400).send(error.message);
+    }
+}
+}
 export default experienciasController;
 
 

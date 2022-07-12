@@ -8,7 +8,6 @@ class Experiencia{
    
         const queryStr = 'SELECT * FROM experiencias'
         const query = await connection(queryStr,[])
-        console.log(query)
         return query.rows;
 
     }
@@ -27,6 +26,12 @@ class Experiencia{
         return client.rows;
 
 
+    }
+
+    async deleteExperiencia(id){
+        const queryStr = 'DELETE FROM experiencias where experiencia_id=$1';
+        const client:any= await connection(queryStr, [id]);
+        return client.rows;
     }
 }
 
