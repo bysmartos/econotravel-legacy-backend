@@ -8,7 +8,6 @@ class Experiencia{
    
         const queryStr = 'SELECT * FROM experiencias'
         const query = await connection(queryStr,[])
-        console.log(query)
         return query.rows;
 
     }
@@ -20,6 +19,20 @@ class Experiencia{
 
     }
 
+    async updateExperiencia(exp:iExperiencia, id){
+        const queryStr = 'UPDATE experiencias SET titulo =$1, imagen=$2, descripcion=$3, precio=$4, duracionhoras=$5, accesibilidad=$6, ubicacion=$7, transporte=$8, duracion=$9 where experiencia_id=$10 returning *' 
+        const client:any= await connection(queryStr,[exp.titulo, exp.imagen, exp.descripcion, exp.precio, exp.duracionhoras, exp.accesibilidad,exp.ubicacion, exp.transporte, exp.duracion,id] as string[]);
+        //const result = await client.query(queryStr, values);
+        return client.rows;
+
+
+    }
+
+    async deleteExperiencia(id){
+        const queryStr = 'DELETE FROM experiencias where experiencia_id=$1';
+        const client:any= await connection(queryStr, [id]);
+        return client.rows;
+    }
 }
 
 export default new Experiencia();
