@@ -9,7 +9,6 @@ const userController =  async (req:Request,res:Response)=>{
         if(!email || !password || !name || !last_name || !role){
             res.status(400).json({message:'email, password, name, last name or role missing'});
         }
-        console.log("No entra en el 201"); 
         const result = await userModel.saveUser({email,password,name,last_name,role, ...users});
         result
                 ? res.status(201).json({ result: result.rows})
@@ -30,7 +29,7 @@ const userController = async (req: Request, res: Response) => {
             const result:QueryResult = await userModel.saveUser({ email, password, ...user });
 
             result
-                /*? res.status(201).json({result: result.rows})
+                ? res.status(201).json({result: result.rows})
                 : res.status(500).send("Failed to create a new user.");
         }
     } catch (error: any) {
