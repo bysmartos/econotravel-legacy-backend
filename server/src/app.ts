@@ -1,5 +1,5 @@
 import express, {Request,Response} from 'express';
-import {experienciasRoute, userRoute} from './route';
+import {experienciasRoute, userRoute, reservasRoute} from './route';
 
 const app = express();
 
@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(experienciasRoute);
 app.use(userRoute);
+app.use(reservasRoute);
 
 
 

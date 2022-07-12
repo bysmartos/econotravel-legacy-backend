@@ -6,7 +6,11 @@ import iReserva from "../model/interfaces/iReserva";
 
 const reservaController={ 
 
-
+    getReservas: async (req:Request,res:Response)=>{
+        const reser: any= await reservasModel.getReservas()
+        res.json(reser)
+ 
+ },
 
 
 }
