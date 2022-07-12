@@ -33,6 +33,16 @@ class Experiencia{
         const client:any= await connection(queryStr, [id]);
         return client.rows;
     }
+
+    async getOneExperiencia(id){
+        const queryStr = 'SELECT * FROM experiencias where experiencia_id=$1'
+        const query = await connection(queryStr,[id]);
+        return query.rows;
+    }
+
+    
+
+
 }
 
 export default new Experiencia();

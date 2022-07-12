@@ -32,3 +32,24 @@ describe("DELETE  /experiencias/:id", () => {
     })
   })
 
+
+  describe("GET  /experiencias/:id", () => {
+    describe("when passed all info", () => {
+        test('should respond with a 201 & content-type "application/json', async () => {
+            const response = await request(app)
+                .get('/experiencias/6')
+            expect(response.status).toEqual(201);
+            expect(response.headers['content-type']).toContain('application/json');
+        })
+        
+    })
+    describe("when something is wrong", () => {
+        test("should return a 400 status code to show there was a user error.", async () => {
+            const response = await request(app)
+                .get('/experiencias/id')
+            expect(response.status).toEqual(400);
+        })
+        
+    })
+  })
+
