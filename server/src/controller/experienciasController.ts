@@ -19,11 +19,12 @@ postExperiencia:async (req:Request,res:Response)=>{
         const {titulo, imagen, descripcion, precio, duracionhoras, accesibilidad, ubicacion, transporte, duracion, ...experiencias}:iExperiencia = req.body;
         if(!titulo || !imagen || !descripcion|| !precio|| !duracionhoras|| !accesibilidad|| !ubicacion|| !transporte|| !duracion){
             res.status(400).json({message:'some info is missing'});
+        }else{
+            const result = await experienciasModel.postExperiencia({titulo, imagen, descripcion, precio, duracionhoras, accesibilidad, ubicacion, transporte, duracion, ...experiencias});
+            result
+                    ? res.status(201).json({ result: result.rows})
+                    : res.status(500).send('No se pudo crear una nueva experiencia');
         }
-        const result = await experienciasModel.postExperiencia({titulo, imagen, descripcion, precio, duracionhoras, accesibilidad, ubicacion, transporte, duracion, ...experiencias});
-        result
-                ? res.status(201).json({ result: result.rows})
-                : res.status(500).send('No se pudo crear una nueva experiencia');
     }catch (error: any){
         res.status(400).send(error.message);
     }

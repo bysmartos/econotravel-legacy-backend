@@ -3,7 +3,8 @@ import iUser from '../model/interfaces/iUser';
 import userModel from '../model/userModel';
 //import { QueryResult } from 'pg';
 
-const userController =  async (req:Request,res:Response)=>{
+const userController =  {
+    saveUser: async (req:Request,res:Response)=>{
     try{
         const {email,password,name,last_name,role, ...users}:iUser = req.body;
         if(!email || !password || !name || !last_name || !role){
@@ -18,6 +19,21 @@ const userController =  async (req:Request,res:Response)=>{
     }catch (error: any){
         res.status(400).send(error.message);
     }
+},
+
+    getAllUsers: async (req:Request,res:Response)=>{
+        try{
+            const allUsers: any= await userModel.getAllUsers()
+
+            allUsers
+                    ? res.status(201).json(allUsers)
+                    : res.status(500).send('No se pudo visualizar la lista de usuarios');
+            
+        }catch (error: any){
+            res.status(400).send(error.message);
+        }
+    }
+
 }
 export default userController;
 /*
