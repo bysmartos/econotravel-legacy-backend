@@ -3,20 +3,37 @@ import iUser from '../model/interfaces/iUser';
 import userModel from '../model/userModel';
 //import { QueryResult } from 'pg';
 
-const userController =  async (req:Request,res:Response)=>{
+const userController =  {
+    saveUser: async (req:Request,res:Response)=>{
     try{
         const {email,password,name,last_name,role, ...users}:iUser = req.body;
         if(!email || !password || !name || !last_name || !role){
             res.status(400).json({message:'email, password, name, last name or role missing'});
-        }
-        console.log("No entra en el 201"); 
-        const result = await userModel.saveUser({email,password,name,last_name,role, ...users});
+        } else {
+            const result = await userModel.saveUser({email,password,name,last_name,role, ...users});
         result
                 ? res.status(201).json({ result: result.rows})
                 : res.status(500).send('No se pudo crear un nuevo usuario');
+        }
+        
     }catch (error: any){
         res.status(400).send(error.message);
     }
+},
+
+    getAllUsers: async (req:Request,res:Response)=>{
+        try{
+            const allUsers: any= await userModel.getAllUsers()
+
+            allUsers
+                    ? res.status(201).json(allUsers)
+                    : res.status(500).send('No se pudo visualizar la lista de usuarios');
+            
+        }catch (error: any){
+            res.status(400).send(error.message);
+        }
+    }
+
 }
 export default userController;
 /*

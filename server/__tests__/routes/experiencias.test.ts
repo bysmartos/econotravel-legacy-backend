@@ -7,6 +7,37 @@ const app = express();
 app.use(express.json())
 app.use(experienciasRoute);
 
+/*describe("PUT /experiencias/:id", () => {
+    describe("when passed all info", () => {
+        test('should respond with a 201 & content-type "application/json', async () => {
+            const response = await request(app)
+                .put('/experiencias/10')
+                .send({
+                      titulo:"test en bicicleta por el Montseny",
+                      imagen:"https://i.imgur.com/5bf63Vg.jpg",
+                      descripcion:"test",
+                      precio:"250",
+                      duracionhoras: "6h",
+                      accesibilidad:"Actividad disponible para todas las edades. Disponemos de bicicletas accesibles para personas con movilidad reducida en el tren inferior así como sillines con capacidad para niños menores de 5 años (peso máximo 20kg).",
+                      ubicacion:"montaña",
+                      transporte:"bicicleta",
+                      duracion:"excursión larga"
+                });
+            expect(response.status).toEqual(201);
+            expect(response.headers['content-type']).toContain('application/json');*/
+    //     })
+        
+    // })
+    /*describe("when some info is missing", () => {
+        test("should return a 400 status code to show there was a user error.", async () => {
+            const response = await request(app)
+                .put('/experiencias/10')
+                .send({ titulo: "1234" });
+            expect(response.status).toEqual(400);
+        })*/
+
+
+
 describe('/experiencias', ()=>
     test('should return status 200 & content-type "application/json"',async ()=>{
         const response = await request(app)
@@ -48,6 +79,11 @@ describe('/experiencias', ()=>
             // should specify json as the content type in the http header.
         })
       })
+
+      
+            
+    //    })
+     //})
       
       
       

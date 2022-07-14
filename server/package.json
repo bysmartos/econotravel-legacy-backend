@@ -2,11 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/server.js",
   "scripts": {
-    "start": "ts-node-dev",
+    "start": "node .",
     "test": "jest --watch --verbose",
-    "build": "tsc"
+    "build": "tsc --build",
+    "start:dev": "ts-node-dev"
+
   },
   "keywords": [],
   "author": "",
