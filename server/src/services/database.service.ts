@@ -12,7 +12,7 @@ const connection=(str:string,value:string[])=> {
       ssl: {
          rejectUnauthorized: false,
       
-       },
+       }
    })
 
 return pool.query(str, value)  
