@@ -8,7 +8,11 @@ console.log(connectionString)
 
 const connection=(str:string,value:string[])=> {
    const pool = new Pool({
-      connectionString
+      connectionString,
+      ssl: {
+         rejectUnauthorized: false,
+      
+       },
    })
 
 return pool.query(str, value)  
