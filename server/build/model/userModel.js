@@ -89,6 +89,21 @@ var User = /** @class */ (function () {
             });
         });
     };
+    User.prototype.getRole = function (user) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryStr, client;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryStr = 'SELECT role FROM "users" WHERE email = $1';
+                        return [4 /*yield*/, (0, database_service_1["default"])(queryStr, [user.email])];
+                    case 1:
+                        client = _a.sent();
+                        return [2 /*return*/, client.rows[0]];
+                }
+            });
+        });
+    };
     return User;
 }());
 exports["default"] = new User();

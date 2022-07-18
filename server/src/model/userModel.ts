@@ -20,6 +20,14 @@ class User {
         const client:any= await connection(queryStr,[]);
         return client.rows;
     }
+
+    async getRole(user:iUserRole){
+        const queryStr = 'SELECT role FROM "users" WHERE email = $1'
+        const client = await connection(queryStr,[user.email]);
+        return client.rows[0];
+    }
+
 }
+import { iUserRole } from "./interfaces/iUserRole";
 
 export default new User();
