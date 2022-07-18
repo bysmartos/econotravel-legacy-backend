@@ -36,7 +36,7 @@ const validateTokenRole = async (req: Request, res: Response, next: NextFunction
 }
 
 export default {
-    generateToken,  validateTokenRole
+    generateToken, validateTokenRole
 }
 
 
