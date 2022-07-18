@@ -23,7 +23,7 @@ const validateUser = async (req, res, next)=>{
         // obtiene email y password de la request.
         const {email,password} =req.body;
         if(!email || !password){
-           throw new Error(' email or password not exist');
+           throw new Error('email or password not exist');
         }
         // llama a la bbdd recupera email y password
         const result = await userModel.getUser({email,password});

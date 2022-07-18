@@ -68,3 +68,31 @@ describe("GET /user/all", () => {
     // })
 
 })
+
+describe("POST /user/login", () => {
+    describe("cuando pongo un usuario y contraseña correcto, se loguea", () => {
+
+        test('should respond with a 200 & content-type "application/json', async () => {
+            const response = await request(app)
+                .post('/user/login')
+                .send({
+                    email: "edur@mail.com",
+                    password:"1234"
+                })
+
+            expect(response.status).toEqual(200);
+            expect(response.headers['content-type']).toContain('application/json');
+        })
+
+    })
+
+    //para testear el control de errores
+    describe("when some info is missing", () => {
+        test("should return 400.", async () => {
+            const response = await request(app)
+                .post('/user/login')
+                .send({ password: "1234" });
+            expect(response.status).toEqual(400);
+        })
+    })
+})
