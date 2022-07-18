@@ -8,4 +8,5 @@ var reservasController_1 = __importDefault(require("../controller/reservasContro
 var jwtHandler_1 = __importDefault(require("../middlewares/jwtHandler"));
 var router = (0, express_1.Router)();
 router.get('/reservas', jwtHandler_1["default"].validateTokenRole, reservasController_1["default"].getReservas);
+router.post('/reservas/:userId', jwtHandler_1["default"].validateTokenLogin, reservasController_1["default"].postReserva); //:userId los : indican un search params
 exports["default"] = router;

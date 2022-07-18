@@ -35,8 +35,23 @@ const validateTokenRole = async (req: Request, res: Response, next: NextFunction
     }
 }
 
+const validateTokenLogin = (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const token: string | null = getTokenFrom(req);
+        let email: any = tokenVerify(token);
+        if (!token || !email) {
+            throw new Error ('token invalid or missing!');
+        }
+         else {
+            next()
+        }
+    } catch (error:any) {
+        res.status(400).send(error.message)
+    }
+}
+
 export default {
-    generateToken, validateTokenRole
+    generateToken, validateTokenRole, validateTokenLogin
 }
 
 

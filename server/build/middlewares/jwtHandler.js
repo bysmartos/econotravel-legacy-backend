@@ -82,7 +82,23 @@ var validateTokenRole = function (req, res, next) { return __awaiter(void 0, voi
         }
     });
 }); };
+var validateTokenLogin = function (req, res, next) {
+    try {
+        var token = getTokenFrom(req);
+        var email = tokenVerify(token);
+        if (!token || !email) {
+            throw new Error('token invalid or missing!');
+        }
+        else {
+            next();
+        }
+    }
+    catch (error) {
+        res.status(400).send(error.message);
+    }
+};
 exports["default"] = {
     generateToken: generateToken,
-    validateTokenRole: validateTokenRole
+    validateTokenRole: validateTokenRole,
+    validateTokenLogin: validateTokenLogin
 };

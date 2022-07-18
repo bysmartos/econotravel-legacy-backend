@@ -79,7 +79,7 @@ var validateUser = function (req, res, next) { return __awaiter(void 0, void 0, 
                 _b.trys.push([0, 3, , 4]);
                 _a = req.body, email = _a.email, password = _a.password;
                 if (!email || !password) {
-                    throw new Error(' email or password not exist');
+                    throw new Error('email or password not exist');
                 }
                 return [4 /*yield*/, userModel_1["default"].getUser({ email: email, password: password })];
             case 1:

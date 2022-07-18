@@ -35,6 +35,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -50,6 +61,33 @@ var reservaController = {
                     reser = _a.sent();
                     res.json(reser);
                     return [2 /*return*/];
+            }
+        });
+    }); },
+    postReserva: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, _a, experienciaId, reservas, result, error_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 4, , 5]);
+                    param = req.params['userid'];
+                    _a = req.body, experienciaId = _a.experienciaId, reservas = __rest(_a, ["experienciaId"]);
+                    if (!!experienciaId) return [3 /*break*/, 1];
+                    res.status(400).json({ message: 'some info is missing' });
+                    return [3 /*break*/, 3];
+                case 1: return [4 /*yield*/, reservasModel_1["default"].postReserva({ experienciaId: experienciaId }, param)];
+                case 2:
+                    result = _b.sent();
+                    result
+                        ? res.status(201).json({ result: result.rows })
+                        : res.status(500).send('No se pudo crear una nueva experiencia');
+                    _b.label = 3;
+                case 3: return [3 /*break*/, 5];
+                case 4:
+                    error_1 = _b.sent();
+                    res.status(400).send(error_1.message);
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     }); }

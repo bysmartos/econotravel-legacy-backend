@@ -9,7 +9,11 @@ class Reserva{
         return query.rows;
     }
 
-
+    async postReserva(res:iReserva, userId){
+        const queryStr = 'insert into reservas (user_id, experiencia_id) values ($2, $1) returning *'
+        const query = await connection(queryStr,[res.experienciaId, userId] as string[])
+        return query.rows[0];
+    }
 
 
 }

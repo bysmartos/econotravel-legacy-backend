@@ -58,6 +58,21 @@ var Reserva = /** @class */ (function () {
             });
         });
     };
+    Reserva.prototype.postReserva = function (res, userId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryStr, query;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryStr = 'insert into reservas (user_id, experiencia_id) values ($2, $1) returning *';
+                        return [4 /*yield*/, (0, database_service_1["default"])(queryStr, [res.experienciaId, userId])];
+                    case 1:
+                        query = _a.sent();
+                        return [2 /*return*/, query.rows[0]];
+                }
+            });
+        });
+    };
     return Reserva;
 }());
 exports["default"] = new Reserva();
