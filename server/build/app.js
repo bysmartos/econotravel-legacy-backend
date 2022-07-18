@@ -7,6 +7,7 @@ var express_1 = __importDefault(require("express"));
 var route_1 = require("./route");
 var app = (0, express_1["default"])();
 app.use(express_1["default"].json());
+//app.use(encryptPassword);
 app.use(express_1["default"].urlencoded({ extended: false }));
 app.use(route_1.experienciasRoute);
 app.use(route_1.userRoute);

@@ -63,32 +63,55 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var userModel_1 = __importDefault(require("../model/userModel"));
 //import { QueryResult } from 'pg';
-var userController = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, name_1, last_name, role, users, result, error_1;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 4, , 5]);
-                _a = req.body, email = _a.email, password = _a.password, name_1 = _a.name, last_name = _a.last_name, role = _a.role, users = __rest(_a, ["email", "password", "name", "last_name", "role"]);
-                if (!(!email || !password || !name_1 || !last_name || !role)) return [3 /*break*/, 1];
-                res.status(400).json({ message: 'email, password, name, last name or role missing' });
-                return [3 /*break*/, 3];
-            case 1: return [4 /*yield*/, userModel_1["default"].saveUser(__assign({ email: email, password: password, name: name_1, last_name: last_name, role: role }, users))];
-            case 2:
-                result = _b.sent();
-                result
-                    ? res.status(201).json({ result: result.rows })
-                    : res.status(500).send('No se pudo crear un nuevo usuario');
-                _b.label = 3;
-            case 3: return [3 /*break*/, 5];
-            case 4:
-                error_1 = _b.sent();
-                res.status(400).send(error_1.message);
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
-        }
-    });
-}); };
+var userController = {
+    saveUser: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var _a, email, password, name_1, last_name, role, users, result, error_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 4, , 5]);
+                    _a = req.body, email = _a.email, password = _a.password, name_1 = _a.name, last_name = _a.last_name, role = _a.role, users = __rest(_a, ["email", "password", "name", "last_name", "role"]);
+                    if (!(!email || !password || !name_1 || !last_name || !role)) return [3 /*break*/, 1];
+                    res.status(400).json({ message: 'email, password, name, last name or role missing' });
+                    return [3 /*break*/, 3];
+                case 1: return [4 /*yield*/, userModel_1["default"].saveUser(__assign({ email: email, password: password, name: name_1, last_name: last_name, role: role }, users))];
+                case 2:
+                    result = _b.sent();
+                    result
+                        ? res.status(201).json({ result: result.rows })
+                        : res.status(500).send('No se pudo crear un nuevo usuario');
+                    _b.label = 3;
+                case 3: return [3 /*break*/, 5];
+                case 4:
+                    error_1 = _b.sent();
+                    res.status(400).send(error_1.message);
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
+            }
+        });
+    }); },
+    getAllUsers: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var allUsers, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, userModel_1["default"].getAllUsers()];
+                case 1:
+                    allUsers = _a.sent();
+                    allUsers
+                        ? res.status(201).json(allUsers)
+                        : res.status(500).send('No se pudo visualizar la lista de usuarios');
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _a.sent();
+                    res.status(400).send(error_2.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); }
+};
 exports["default"] = userController;
 /*
 const userController = async (req: Request, res: Response) => {
@@ -101,7 +124,7 @@ const userController = async (req: Request, res: Response) => {
             const result:QueryResult = await userModel.saveUser({ email, password, ...user });
 
             result
-                ? res.status(201).json({result: result.rows})
+                /*? res.status(201).json({result: result.rows})
                 : res.status(500).send("Failed to create a new user.");
         }
     } catch (error: any) {

@@ -6,7 +6,10 @@ var connectionString = (0, config_1.config)();
 console.log(connectionString);
 var connection = function (str, value) {
     var pool = new pg_1.Pool({
-        connectionString: connectionString
+        connectionString: connectionString,
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
     return pool.query(str, value);
 };
