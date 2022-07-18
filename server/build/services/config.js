@@ -1,9 +1,8 @@
 "use strict";
 exports.__esModule = true;
-exports.config = void 0;
+exports.secret = exports.config = void 0;
 var dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
-console.log(process.env.PG_HOST);
 console.log(process.env.PG_URL);
 var config = function () {
     var uri = process.env.PG_URL;
@@ -11,3 +10,4 @@ var config = function () {
     return uri;
 };
 exports.config = config;
+exports.secret = process.env.SECRET || '';

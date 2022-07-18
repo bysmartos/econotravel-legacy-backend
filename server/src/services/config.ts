@@ -10,3 +10,5 @@ export const config = ()=>{
     console.log(uri)
     return uri;
 }
+
+export const secret = process.env.SECRET || '';

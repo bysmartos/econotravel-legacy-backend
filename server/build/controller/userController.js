@@ -62,6 +62,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var userModel_1 = __importDefault(require("../model/userModel"));
+var jwtHandler_1 = __importDefault(require("../middlewares/jwtHandler"));
 //import { QueryResult } from 'pg';
 var userController = {
     saveUser: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -108,6 +109,19 @@ var userController = {
                     res.status(400).send(error_2.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
+            }
+        });
+    }); },
+    login: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var token;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, jwtHandler_1["default"].generateToken(req.body.email)];
+                case 1:
+                    token = _a.sent();
+                    console.log(token);
+                    res.json({ token: token });
+                    return [2 /*return*/];
             }
         });
     }); }

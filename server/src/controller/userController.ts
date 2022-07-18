@@ -1,6 +1,7 @@
 import {Request,Response} from 'express';
 import iUser from '../model/interfaces/iUser';
 import userModel from '../model/userModel';
+import jwt from '../middlewares/jwtHandler';
 //import { QueryResult } from 'pg';
 
 const userController =  {
@@ -32,7 +33,13 @@ const userController =  {
         }catch (error: any){
             res.status(400).send(error.message);
         }
-    }
+    },
+
+    login: async (req: Request, res: Response) => {
+        const token:any = await jwt.generateToken(req.body.email)
+        console.log(token);
+        res.json({token});
+    },
 
 }
 export default userController;
