@@ -170,32 +170,28 @@ var experienciasController = {
                 case 3: return [2 /*return*/];
             }
         });
+    }); },
+    postExperienciaFilter: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var searcher, result, error_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    searcher = req.body.searcher;
+                    return [4 /*yield*/, experienciasModel_1["default"].postExperienciaFilter({ searcher: searcher })];
+                case 1:
+                    result = _a.sent();
+                    result
+                        ? res.status(201).json(result)
+                        : res.status(500).send('No se pudo filtrar una  experiencia');
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_5 = _a.sent();
+                    res.status(400).send(error_5.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
     }); }
 };
 exports["default"] = experienciasController;
-//CODIGO QUE FUNCIONA
-// import { Response, Request } from "express";
-// import pool from "../services/database.service";
-// const experienciasController={
-//     getExperiencias:  async (req:Request,res:Response)=>{
-//        const exp= await pool.query('select * from experiencias')
-//        res.json(exp.rows)
-// }
-// }
-// export default experienciasController;
-// import { Response, Request } from "express";
-// import {Pool} from  'pg';
-// const pool=new Pool({
-//     host:'localhost',
-//     user:'postgres',
-//     password:'1234',
-//     database:'econotravel-personal',
-//     port:5432
-//  });
-// const experienciasController={
-//     getExperiencias:  async (req:Request,res:Response)=>{
-//        const exp= await pool.query('select * from experiencias')
-//        res.json(exp.rows)
-// }
-// }
-// export default experienciasController;

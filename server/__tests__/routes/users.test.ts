@@ -49,8 +49,7 @@ describe("GET /user/all", () => {
         test('should respond with a 201 & content-type "application/json', async () => {
             const response = await request(app)
                 .get('/user/all')
-
-            expect(response.status).toEqual(201);
+                .set('Authorization', `Bearer eyJhbGciOiJIUzI1NiJ9.ZWR1ckBtYWlsLmNvbQ.UqqO6APmGNwy3fC-tl_qdeCNMkaCOizjeHk5btr_KOI`);            expect(response.status).toEqual(201);
             expect(response.headers['content-type']).toContain('application/json');
         })
 
