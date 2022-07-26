@@ -124,26 +124,33 @@ var userController = {
                     return [2 /*return*/];
             }
         });
+    }); },
+    updateUser: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, _a, email, password, name_2, last_name, users, result, error_3;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 4, , 5]);
+                    param = req.params['id'];
+                    _a = req.body, email = _a.email, password = _a.password, name_2 = _a.name, last_name = _a.last_name, users = __rest(_a, ["email", "password", "name", "last_name"]);
+                    if (!(!email || !password || !name_2 || !last_name)) return [3 /*break*/, 1];
+                    res.status(400).json({ message: 'some info is missing' });
+                    return [3 /*break*/, 3];
+                case 1: return [4 /*yield*/, userModel_1["default"].updateUser(__assign({ email: email, password: password, name: name_2, last_name: last_name }, users), param)];
+                case 2:
+                    result = _b.sent();
+                    result
+                        ? res.status(201).json({ result: result.rows })
+                        : res.status(500).send('No se pudo modificar  un user');
+                    _b.label = 3;
+                case 3: return [3 /*break*/, 5];
+                case 4:
+                    error_3 = _b.sent();
+                    res.status(400).send(error_3.message);
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
+            }
+        });
     }); }
 };
 exports["default"] = userController;
-/*
-const userController = async (req: Request, res: Response) => {
-
-    try {
-        const { email, password, ...user } = req.body as iUser;
-        if (!email || !password) {
-            res.status(400).send('missing some data');
-        } else {
-            const result:QueryResult = await userModel.saveUser({ email, password, ...user });
-
-            result
-                /*? res.status(201).json({result: result.rows})
-                : res.status(500).send("Failed to create a new user.");
-        }
-    } catch (error: any) {
-
-        res.status(400).send(error.message);
-    }
-}
-*/

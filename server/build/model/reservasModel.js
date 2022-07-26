@@ -73,6 +73,21 @@ var Reserva = /** @class */ (function () {
             });
         });
     };
+    Reserva.prototype.getReservasByUser = function (userid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryStr, query;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryStr = 'select us.name, us.last_name, exp.titulo from reservas res inner join users us on res.user_id = us.user_id inner join experiencias exp on res.experiencia_id = exp.experiencia_id where res.user_id=$1';
+                        return [4 /*yield*/, (0, database_service_1["default"])(queryStr, [userid])];
+                    case 1:
+                        query = _a.sent();
+                        return [2 /*return*/, query.rows];
+                }
+            });
+        });
+    };
     return Reserva;
 }());
 exports["default"] = new Reserva();

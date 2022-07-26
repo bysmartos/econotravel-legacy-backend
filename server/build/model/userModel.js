@@ -104,6 +104,22 @@ var User = /** @class */ (function () {
             });
         });
     };
+    User.prototype.updateUser = function (us, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryStr, client;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryStr = 'UPDATE users SET email =$1, password=$2, name=$3, last_name=$4 where user_id=$5 returning *';
+                        return [4 /*yield*/, (0, database_service_1["default"])(queryStr, [us.email, us.password, us.name, us.last_name, id])];
+                    case 1:
+                        client = _a.sent();
+                        //const result = await client.query(queryStr, values);
+                        return [2 /*return*/, client.rows];
+                }
+            });
+        });
+    };
     return User;
 }());
 exports["default"] = new User();

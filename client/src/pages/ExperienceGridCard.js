@@ -12,9 +12,7 @@ const ExperienceGridCard = () =>  {
   const search= searchParams.get('search') || ''
   const [card, setCard] = useState([]);
   useEffect(() => {
-    axios({
-      url: "http://localhost:3000/econoExperience",
-    })
+    axios.get('http://localhost:3001/experiencias')
       .then((response) => {
         console.log(response)
         const filterArray=response.data.filter(element=>{

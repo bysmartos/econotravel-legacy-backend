@@ -64,6 +64,20 @@ var reservaController = {
             }
         });
     }); },
+    getReservasByUser: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, reser;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    param = req.params['userid'];
+                    return [4 /*yield*/, reservasModel_1["default"].getReservasByUser(param)];
+                case 1:
+                    reser = _a.sent();
+                    res.json(reser);
+                    return [2 /*return*/];
+            }
+        });
+    }); },
     postReserva: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         var param, _a, experienciaId, reservas, result, error_1;
         return __generator(this, function (_b) {
