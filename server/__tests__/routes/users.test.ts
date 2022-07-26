@@ -55,17 +55,6 @@ describe("GET /user/all", () => {
 
     })
 
-    // describe("when something's wrong", () => {
-
-    //     test("should return a 400 status code to show there was a user error.", async () => {
-    //         const response = await request(app)
-    //             .get('/user/all')
-    //             //.send({ password: "1234" });
-
-    //         expect(response.status).toEqual(400);
-    //     })
-    // })
-
 })
 
 describe("POST /user/login", () => {
@@ -91,6 +80,31 @@ describe("POST /user/login", () => {
             const response = await request(app)
                 .post('/user/login')
                 .send({ password: "1234" });
+            expect(response.status).toEqual(400);
+        })
+    })
+})
+
+describe("PUT  /user/:id", () => {
+    describe("when passed all info", () => {
+        test('should respond with a 201 & content-type "application/json', async () => {
+            const response = await request(app)
+                .put('/user/212')
+                .send({
+                    email: "mi@mail.com",
+                    password: "1234",
+                    name: "sandra",
+                   last_name:  "martos",
+                })
+            expect(response.status).toEqual(201);
+            expect(response.headers['content-type']).toContain('application/json');
+        })
+    })
+    describe("when some info is missing", () => {
+        test("should return a 400 status code to show there was a user error.", async () => {
+            const response = await request(app)
+                .put('/user/10')
+                .send({email: "mi@mail.com" });
             expect(response.status).toEqual(400);
         })
     })
