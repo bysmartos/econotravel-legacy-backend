@@ -7,6 +7,7 @@ const router = Router();
 router.post('/user/register', auth.encryptPassword, userController.saveUser);
 router.get('/user/all',jwtHandler.validateTokenRole,userController.getAllUsers);
 router.post('/user/login',auth.validateUser,userController.login);
+router.put('/user/:id',userController.updateUser);
 
 export default router;
 
