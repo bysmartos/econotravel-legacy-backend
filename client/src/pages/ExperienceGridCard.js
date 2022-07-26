@@ -34,7 +34,7 @@ const ExperienceGridCard = () =>  {
       <Row xs={1} md={2} lg={3} className="g-4" >
     {card.map(item =>(
       <Col key={item.id}>
-        <Link to={`/paginasexperiences/${item.id}`}>
+        <Link to={`/paginasexperiences/${item.experiencia_id}`}>
         <Card style={{cursor : 'pointer'}}>
           <Card.Img className='cardImageExper' variant="top" src={item.imagen} />
           <Card.Body>

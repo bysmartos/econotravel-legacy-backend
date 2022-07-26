@@ -9,7 +9,7 @@ const Ubicacion = () => {
     //data json
     useEffect(() => {
         axios
-          .get(`./db.json`)
+          .get(`http://localhost:3001/experiencias`)
           .then((res) => {
             //setName(res.data.name);
           })
