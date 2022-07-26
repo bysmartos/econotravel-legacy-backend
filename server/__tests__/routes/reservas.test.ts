@@ -42,3 +42,10 @@ describe('/reservas', ()=>
         })
     })   
     
+    describe(' get /reservas/:userid', ()=>
+    test('should return status 200 & content-type "application/json"',async ()=>{
+        const response = await request(app)
+        .get('/reservas/4')
+        expect(response.status).toBe(200);
+        expect(response.headers['content-type']).toContain('application/json')
+    }))
