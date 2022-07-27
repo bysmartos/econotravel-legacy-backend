@@ -1,6 +1,5 @@
-function MyProfile(){
-    return(
-        <h1>This is a profile page</h1>
-     )}
+function MyProfile() {
+  return <h1>This is a profile page</h1>;
+}
 
-export default MyProfile
+export default MyProfile;

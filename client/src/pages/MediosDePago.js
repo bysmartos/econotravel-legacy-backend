@@ -1,13 +1,12 @@
-import Header from '../components/Header'
+import Header from "../components/Header";
 
-function MediosDePago (){
-    return(
-        <div> 
-            <Header />
-            <h1>Nuestros Medio de Pago</h1>
-          
-        </div>
-     )
+function MediosDePago() {
+  return (
+    <div>
+      <Header />
+      <h1>Nuestros Medio de Pago</h1>
+    </div>
+  );
 }
 
-export default MediosDePago
+export default MediosDePago;

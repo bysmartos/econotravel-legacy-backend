@@ -1,6 +1,5 @@
-function Singup(){
-    return(
-        <h1>This is a Singup page</h1>
-     )}
+function Singup() {
+  return <h1>This is a Singup page</h1>;
+}
 
-export default Singup
+export default Singup;

@@ -5,13 +5,13 @@ var config_1 = require("./config");
 var connectionString = (0, config_1.config)();
 console.log(connectionString);
 var connection = function (str, value) {
-    var pool = new pg_1.Pool({
-        connectionString: connectionString,
-        ssl: {
-            rejectUnauthorized: false
-        }
-    });
-    return pool.query(str, value);
+  var pool = new pg_1.Pool({
+    connectionString: connectionString,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
+  return pool.query(str, value);
 };
 exports["default"] = connection;
 // CODIGO QUE FUNCIONA

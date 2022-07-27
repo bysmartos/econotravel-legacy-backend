@@ -1,31 +1,22 @@
-import {Pool} from 'pg';
-import {config } from './config'
+import { Pool } from "pg";
+import { config } from "./config";
 
-const connectionString = config()
+const connectionString = config();
 
-console.log(connectionString)
+console.log(connectionString);
 
+const connection = (str: string, value: string[]) => {
+  const pool = new Pool({
+    connectionString,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
 
-const connection=(str:string,value:string[])=> {
-   const pool = new Pool({
-      connectionString,
-      ssl: {
-         rejectUnauthorized: false,
-      
-       }
-   })
-
-return pool.query(str, value)  
-
-
-}
+  return pool.query(str, value);
+};
 
 export default connection;
-
-
-
-
-
 
 // CODIGO QUE FUNCIONA
 // import {Pool} from 'pg';
@@ -39,11 +30,9 @@ export default connection;
 //    connectionString
 // })
 
-
 // export default pool;
 
 // TERMINA CODIGO QUE FUNCIONA
-
 
 // import {config as dotenv} from 'dotenv';
 

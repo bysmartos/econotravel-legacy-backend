@@ -27,7 +27,7 @@ function PaginasExperiences() {
     <>
       <Header />
       <section className="container-paginasexperiences">
-        <img alt='' src={experiences.imagen} className="headshot foto"></img>
+        <img alt="" src={experiences.imagen} className="headshot foto"></img>
         <Card style={{ width: "40rem" }} className="ml-4">
           <Card.Body>
             <Card.Title>{experiences.nombre}</Card.Title>

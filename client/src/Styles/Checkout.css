@@ -1,81 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&family=Raleway:wght@200;400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&family=Raleway:wght@200;400;700&display=swap");
 
 .navForm {
-    background-color: #4B7F55;
-    height: 9.2em;
-    margin-top: 6.2em;
-    padding-top: 2em;
-    margin-bottom: 4em;
-    color:white;
-    
+  background-color: #4b7f55;
+  height: 9.2em;
+  margin-top: 6.2em;
+  padding-top: 2em;
+  margin-bottom: 4em;
+  color: white;
 }
 .titleForm {
-    font-family: 'Raleway';
-    font-weight: 700;
-    margin-left: 1em;
+  font-family: "Raleway";
+  font-weight: 700;
+  margin-left: 1em;
 }
 
-.goBack{
-    display: flex;
-    gap: 0.5em;
-    align-items: flex-start;
-    margin-left: 2em;
-    font-family: 'Poppins';
-    color:white;
-    text-decoration: none;
-    
-
+.goBack {
+  display: flex;
+  gap: 0.5em;
+  align-items: flex-start;
+  margin-left: 2em;
+  font-family: "Poppins";
+  color: white;
+  text-decoration: none;
 }
-.formRegister { 
-    display: flex;
-    flex-direction: row;
-    justify-content:center ;
-    align-items:center;
-    margin-left: 3em;
-    
-    
-    
-    
+.formRegister {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3em;
 }
-.mb-3{
-    width:100%
+.mb-3 {
+  width: 100%;
 }
 .shoppingcart {
-    width: 36em;
-    height:25em;
-    background-color: #FBF1E3;
-    padding-top: 2.8em;
-    padding-left: 3.6em;
-    margin-left: 10em;
-    margin-bottom: 3em;
-    font-family: 'Poppins';
-   
-    }
-    .titleShop {
-        font-family: "Raleway";
-        font-weight: 700;
-        font-size: 1.2em;
-    
-    }
-    .paymoney {
-        font-size: 2em;
-        color:#4B7F55;
-        font-weight: 600;
-    }
+  width: 36em;
+  height: 25em;
+  background-color: #fbf1e3;
+  padding-top: 2.8em;
+  padding-left: 3.6em;
+  margin-left: 10em;
+  margin-bottom: 3em;
+  font-family: "Poppins";
+}
+.titleShop {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.paymoney {
+  font-size: 2em;
+  color: #4b7f55;
+  font-weight: 600;
+}
 .reservabtn {
-    width: 11.2em;
-    height: 2.5em;
-    border-radius: 1.37em;
-    border: #4B7F55;
-    background-color: #4B7F55;
-    color: white;
-    margin-bottom: 1.8em;
-    margin-top: 1.5em;
+  width: 11.2em;
+  height: 2.5em;
+  border-radius: 1.37em;
+  border: #4b7f55;
+  background-color: #4b7f55;
+  color: white;
+  margin-bottom: 1.8em;
+  margin-top: 1.5em;
 }
 
 .checkbox {
-    list-style: none;
-    font-style: italic;
+  list-style: none;
+  font-style: italic;
 }

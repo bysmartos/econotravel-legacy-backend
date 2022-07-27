@@ -1,21 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&family=Raleway:wght@200;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&family=Raleway:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,400&display=swap");
 
 .subscribe {
-width: 90%;
+  width: 90%;
 
-
-display: flex;
-
+  display: flex;
 }
-.imgSubscribe{
-  width:40em;
+.imgSubscribe {
+  width: 40em;
   position: relative;
   margin-left: 20em;
   margin-top: 5em;
-  
-
 }
 
 #textsubscribe {
@@ -23,33 +18,29 @@ display: flex;
   height: 20em;
   padding-left: 1.7em;
   padding-top: 3em;
-  color:black;
+  color: black;
   background-color: whitesmoke;
-  display:flex;
+  display: flex;
   justify-content: flex-start;
   flex-direction: column;
   margin-top: 8.6em;
   position: absolute;
   left: 40em;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
-
-
- }
+}
 
 .titlesubscribe {
-  font-weight:700;
+  font-weight: 700;
   font-size: 2em;
   padding-bottom: 1em;
-  font-family: 'Raleway';
-
-
+  font-family: "Raleway";
 }
 .registro {
   width: 11.2em;
   height: 2.5em;
   border-radius: 1.37em;
-  border: #4B7F55;
-  background-color: #4B7F55;
+  border: #4b7f55;
+  background-color: #4b7f55;
   color: white;
 }

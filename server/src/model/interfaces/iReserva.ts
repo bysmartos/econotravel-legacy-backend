@@ -1,3 +1,3 @@
 export default interface iReserva {
-    experienciaId: string
+  experienciaId: string;
 }
